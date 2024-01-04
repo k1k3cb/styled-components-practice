@@ -1,18 +1,37 @@
-import { cards } from '../../constants/cards';
 import CardHeader from '../cardHeader/CardHeader';
-import { StyledCardContent, StyledCardTitle } from './styles';
+import {
+	StyledCardContainer,
+	StyledCardContent,
+	StyledCardTitle
+} from './styles';
 
-const Card = ({ image, user, userDescription, title, content }) => {
+const Card = ({
+	image,
+	user,
+	userDescription,
+	title,
+	content,
+	$backgroundColor,
+	$color,
+	$colorContent,
+	$className
+}) => {
 	return (
-		<>
+		<StyledCardContainer
+			$backgroundColor={$backgroundColor}
+			className={$className}
+		>
 			<CardHeader
-				image={cards[0].image}
-				user={cards[0].user}
-				userDescription={cards[0].userDescription}
+				image={image}
+				user={user}
+				userDescription={userDescription}
+				$color={$color}
 			/>
-			<StyledCardTitle>{cards[0].title}</StyledCardTitle>
-			<StyledCardContent>{cards[0].content}</StyledCardContent>
-		</>
+			<StyledCardTitle $color={$color}>{title}</StyledCardTitle>
+			<StyledCardContent $colorContent={$colorContent}>
+				{content}
+			</StyledCardContent>
+		</StyledCardContainer>
 	);
 };
 
